@@ -1,6 +1,8 @@
 # rust_fluent
 ====
 
+![](https://travis-ci.org/takkanm/rust_fluent.svg?branch=master)
+
 ## Description
 
 fluentd client for rust.
