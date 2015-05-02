@@ -1,7 +1,10 @@
 [package]
 name = "rust_fluent"
 version = "0.0.1"
-authors = ["takkanm <takkanm@gmail.com>"]
+authors = ["takkanm"]
+license = "MIT/Apache-2.0"
+repository = "https://github.com/takkanm/rust_fluent"
+homepage = "https://github.com/takkanm/rust_fluent"
 
 [dependencies]
 rustc-serialize = "0.3.14"
