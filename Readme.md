@@ -20,6 +20,13 @@ and this to your crate root:
 extern crate rust_fluent;
 ```
 
+now only tcp with json  support.
+
+## Tasks
+
+- use http
+- use messagepack
+
 ## Licence
 
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
