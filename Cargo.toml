@@ -1,0 +1,8 @@
+[package]
+name = "rust_fluent"
+version = "0.0.1"
+authors = ["takkanm <takkanm@gmail.com>"]
+
+[dependencies]
+rustc-serialize = "0.3.14"
+time = "0.1.25"
