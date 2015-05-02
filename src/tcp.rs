@@ -7,13 +7,13 @@ use self::rustc_serialize::json;
 
 extern crate time;
 
-pub struct Fulentd {
+pub struct Fluentd {
     pub address: String,
     pub port: u16,
     pub tag: String,
 }
 
-impl Fulentd {
+impl Fluentd {
     pub fn write(&self, object: HashMap<String, String>) {
         let tag = json::encode(&self.tag).unwrap();
         let now = time::now();
