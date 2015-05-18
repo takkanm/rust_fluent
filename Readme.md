@@ -13,7 +13,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rustc-fluent = "*"
+rust-fluent = "*"
 ```
 
 and this to your crate root:
@@ -31,7 +31,7 @@ now only tcp with json  support.
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](https://github.com/takkanm/tool/blob/master/LICENCE)
 
 ## Author
 
