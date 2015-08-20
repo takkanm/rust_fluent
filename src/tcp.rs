@@ -9,9 +9,9 @@ use rustc_serialize::Encodable;
 
 extern crate time;
 
-pub struct Fluentd<A: net::ToSocketAddrs> {
+pub struct Fluentd<'a, A: net::ToSocketAddrs> {
     pub address: A,
-    pub tag: String,
+    pub tag: &'a str,
 }
 
 pub enum FluentError {
@@ -32,7 +32,7 @@ impl From<json::EncoderError> for FluentError {
 }
 
 
-impl <A: net::ToSocketAddrs> Fluentd<A> {
+impl <'a, A: net::ToSocketAddrs> Fluentd<'a, A> {
     pub fn write<B: Encodable> (&self, object: &B) -> Result<(), FluentError> {
         let tag = try!(json::encode(&self.tag));
         let now = time::now();
