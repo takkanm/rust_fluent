@@ -10,7 +10,7 @@ fn main() {
 
     let fluentd = tcp::Fluentd {
       address: "0.0.0.0:24224",
-      tag: "foo".to_string(),
+      tag: "foo",
     };
 
     fluentd.write(&obj);
