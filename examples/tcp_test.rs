@@ -9,10 +9,9 @@ fn main() {
     obj.insert("key".to_string(), "value".to_string());
 
     let fluentd = tcp::Fluentd {
-      address: "0.0.0.0".to_string(),
-      port: 24224,
+      address: "0.0.0.0:24224",
       tag: "foo".to_string(),
     };
 
-    fluentd.write(obj);
+    fluentd.write(&obj);
 }
