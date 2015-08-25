@@ -14,6 +14,7 @@ pub struct Fluentd<'a, A: net::ToSocketAddrs> {
     pub tag: &'a str,
 }
 
+#[derive(Debug)]
 pub enum FluentError {
     DecodeError(json::EncoderError),
     IoError(io::Error),
