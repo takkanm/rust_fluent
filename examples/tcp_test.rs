@@ -13,5 +13,5 @@ fn main() {
       tag: "foo",
     };
 
-    fluentd.write(&obj);
+    let _ = fluentd.write(&obj);
 }
