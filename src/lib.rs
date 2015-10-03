@@ -17,6 +17,6 @@ mod test {
             tag: "foo",
         };
 
-        fluentd.write(&object);
+        let _ = fluentd.write(&object);
     }
 }
