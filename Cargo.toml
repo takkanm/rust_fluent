@@ -8,5 +8,5 @@ homepage = "https://github.com/takkanm/rust_fluent"
 description = "fluentd client for rust"
 
 [dependencies]
-rustc-serialize = "0.3.*"
+rustc-serialize = "0.3.16"
 time = "0.1.25"
