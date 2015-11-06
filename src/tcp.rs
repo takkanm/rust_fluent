@@ -34,7 +34,7 @@ impl From<json::EncoderError> for FluentError {
 
 
 impl <'a, A: net::ToSocketAddrs> Fluentd<'a, A> {
-    pub fn write<B: Encodable> (&self, object: &B) -> Result<(), FluentError> {
+    pub fn write<B: Encodable>(&self, object: &B) -> Result<(), FluentError> {
         let tag = try!(json::encode(&self.tag));
         let now = time::now();
         let record = try!(json::encode(object));
