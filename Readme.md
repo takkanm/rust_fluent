@@ -13,7 +13,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust-fluent = "*"
+rust-fluent = "0.2.0"
 ```
 
 and this to your crate root:
