@@ -9,4 +9,4 @@ description = "fluentd client for rust"
 
 [dependencies]
 rustc-serialize = "0.3.16"
-time = "0.1.25"
+time = "0.1.34"
