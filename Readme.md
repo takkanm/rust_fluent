@@ -5,7 +5,7 @@
 
 ## Description
 
-fluentd client for rust.
+Fluentd client for rust.
 
 ## Usage
 
