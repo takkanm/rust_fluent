@@ -31,7 +31,7 @@ now only tcp with json  support.
 
 ## Licence
 
-[MIT](https://github.com/takkanm/tool/blob/master/LICENCE)
+[MIT](https://github.com/takkanm/rust_fluent/blob/master/LICENCE)
 
 ## Author
 
