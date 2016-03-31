@@ -48,9 +48,12 @@ impl <'a, A: net::ToSocketAddrs> Fluentd<'a, A> {
         let message = format!("[{},{},{}]", tag, now.to_timespec().sec, record);
 
         let mut stream = try!(net::TcpStream::connect(&self.address));
-        let _ = stream.write(&message.into_bytes());
+        let result = stream.write(&message.into_bytes());
         drop(stream);
 
-        Ok(())
+        match result {
+            Ok(_) => Ok(()),
+            Err(v) => Err(From::from(v)),
+        }
     }
 }
