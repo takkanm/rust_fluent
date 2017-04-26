@@ -3,10 +3,8 @@ use std::net;
 use std::io;
 use std::convert::From;
 
-extern crate rustc_serialize;
-use rustc_serialize::json;
-use rustc_serialize::Encodable;
-
+extern crate serde;
+extern crate serde_json;
 extern crate time;
 
 pub struct Fluentd<'a, A: net::ToSocketAddrs> {
@@ -16,7 +14,7 @@ pub struct Fluentd<'a, A: net::ToSocketAddrs> {
 
 #[derive(Debug)]
 pub enum FluentError {
-    DecodeError(json::EncoderError),
+    DecodeError(serde_json::Error),
     IoError(io::Error),
 }
 
@@ -26,12 +24,11 @@ impl From<io::Error> for FluentError {
     }
 }
 
-impl From<json::EncoderError> for FluentError {
-    fn from(err: json::EncoderError) -> FluentError {
+impl From<serde_json::Error> for FluentError {
+    fn from(err: serde_json::Error) -> FluentError {
         FluentError::DecodeError(err)
     }
 }
-
 
 impl <'a, A: net::ToSocketAddrs> Fluentd<'a, A> {
     pub fn new(address: A, tag: &'a str) -> Fluentd<'a, A> {
@@ -41,10 +38,10 @@ impl <'a, A: net::ToSocketAddrs> Fluentd<'a, A> {
         }
     }
 
-    pub fn write<B: Encodable>(&self, object: &B) -> Result<(), FluentError> {
-        let tag = try!(json::encode(&self.tag));
+    pub fn write<B: serde::ser::Serialize>(&self, object: &B) -> Result<(), FluentError> {
+        let tag = try!(serde_json::to_string(&self.tag));
         let now = time::now();
-        let record = try!(json::encode(object));
+        let record = try!(serde_json::to_string(object));
         let message = format!("[{},{},{}]", tag, now.to_timespec().sec, record);
 
         let mut stream = try!(net::TcpStream::connect(&self.address));

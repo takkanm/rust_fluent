@@ -1,7 +1,5 @@
 pub mod tcp;
 
-extern crate rustc_serialize;
-
 #[cfg(test)]
 mod test {
     use tcp;
